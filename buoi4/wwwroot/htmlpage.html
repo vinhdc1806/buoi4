@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <form> From: <input type="text" id="txtform" value="Vinh Cao">
+    <br />
+    <br />
+    <br />
+    <button id="btn">
+        >>>
+    </button>
+    <br>
+    <br>
+    <button type="button">send</button>
+
+    <br/>
+    <br/>
+    <br/>
+    To: <input type="text" id="txtto" />
+    </form>
+    
+    <script>
+        $(function () {
+
+            var giatri = $("#txtform").val();
+             $("#txtform").attr("value")
+        });
+
+
+        $(function () {
+            $("#btn").click(function (event) {
+                event.preventDefault();
+                var giatri = $("#txtform").val();
+                $("#txtto").val(giatri);
+                $("#txtto").css("Backround-color", "yello");
+
+            });
+        });
+    </script>
+</body>
+</html>

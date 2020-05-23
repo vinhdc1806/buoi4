@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <title></title>
+</head>
+<body>
+    <button type="button" id="txthide">Hide</button>
+    <button type="button" id="txtshow">Show</button>
+    <button type="button" id="txttoggle">Toggle</button>
+
+    <style>
+        td {
+            width: 30px;
+            height: 30px;
+            border: 1px double black;
+            text-align: center;
+        }
+    </style>
+    
+    <table id="table_banco">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        $(function () {
+            $("#txtshow").click(function () {
+                $("#table_banco").show();
+            });
+            $("#txthide").click(function () {
+                $("#table_banco").hide();
+            }); $("#txttoggle").click(function () {
+                $("#table_banco").toggle();
+            });
+            var gt = "x";
+            $("td").click(function () {
+                $(this).html(gt);
+                gt = gt == "x" ? "0" : "x";
+            })
+        }); 
+
+    </script>
+</body>
+</html>

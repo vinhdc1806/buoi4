@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <title></title>
+    <style>
+        td {
+            text-align:center;
+            
+        }
+        button {
+            text-align: center;
+            
+        }
+        </style>
+</head>
+
+
+<body>
+    <table style="margin:0 auto;">
+    <tr>
+    <td>User name</td>
+    <td><input type="text" id="username" placeholder="Nhap User" />
+       
+        </td> 
+    </tr>
+    
+        <tr>
+            <td> Password</td>
+            <td><input type="password" id="pass" placeholder="Nhap pass"> </td>
+        </tr>
+
+    <tr>
+            <td colspan="2"><button id="login">Login</button> </td>
+            
+    </tr>
+        
+    <tr>
+            <td colspan="2"> Thong bao</td>
+            
+    </tr>
+ </table>
+    <div id="thongbao" style="text-align:center"> </div>
+    <style>
+        .loi {
+        text-align:center;
+        background-color:red;
+
+        }
+
+        </style>
+    <script> 
+        function kiemtra(obj) {
+            if (obj.val().length == 0) {
+                obj.addClass("loi");
+                return true;
+            }
+            obj.removeClass("loi");
+            return false;
+        }
+        $(function () {
+            $("#login").click(function () {
+                let user = $("#username");
+                let passr = $("#pass");
+
+                if ($(this).html() == "Logout")
+                {
+                    $(this).html("Login");
+                    user.next().remove();
+                    user.show();
+                    user.val('');
+                    passr.next().remove();
+                    passr.show();
+                    passr.val('');
+                    $("#thongbao").html('');
+                    return true;
+                }
+                //if (user.val().length == 0)
+                //{
+                //    user.addClass("loi");
+                //    return false;
+                //}
+
+                if (kiemtra(user) || kiemtra(passr))
+                {
+                    return false;
+                }
+
+
+                if (user.val().length < 4 || passr.val().length < 4)
+                {
+                    $("#thongbao").html("dang nhap that bai");
+                    return false;
+                }
+                $("#thongbao").html("dang nhap thanh cong");
+                $(this).html("Logout");
+
+                user.hide();
+                passr.hide();
+                user.after('<span>' + user.val() + '</span>');
+
+                let passtam = $('</span>').html(passr.val());
+                passr.after(passtam);
+            });
+        });
+        </script>
+
+</body>
+</html>
